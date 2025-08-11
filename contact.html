@@ -1,0 +1,60 @@
+﻿<section id="contact" style="background: #f9f9f9; padding: 40px 20px; color: #000;">
+  <h2 style="text-align: center; color: #003366;">Contact SA Cyber Net For Assistance</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+
+    <!-- Contact Info -->
+    <div style="flex: 1; min-width: 300px;">
+      <h3>Office Address</h3>
+      <p>📍 54/4 Senpara, Parbata, Mirpur 10, Dhaka 1216</p>
+
+      <h3>Call Us</h3>
+      <p>📞 01999944566<br>📞 01999944561</p>
+
+      <h3>Mail Us</h3>
+      <p>📧 alomgirnetbd@gmail.com</p>
+
+      <h3>Opening Hours</h3>
+      <p>🕙 10 AM To 10 PM</p>
+    </div>
+
+    <!-- WhatsApp Form -->
+    <div style="flex: 1; min-width: 300px;">
+      <h3>Send Us A Message</h3>
+      <form onsubmit="sendToWhatsApp(); return false;" style="display: flex; flex-direction: column; gap: 10px;">
+        <input type="text" id="name" placeholder="Name" required style="padding: 10px; border: 1px solid #ccc;" />
+        <input type="email" id="email" placeholder="Email" required style="padding: 10px; border: 1px solid #ccc;" />
+        <input type="tel" id="phone" placeholder="Phone Number" required style="padding: 10px; border: 1px solid #ccc;" />
+        <input type="text" id="address" placeholder="Address" required style="padding: 10px; border: 1px solid #ccc;" />
+        <input type="text" id="subject" placeholder="Subject" required style="padding: 10px; border: 1px solid #ccc;" />
+        <textarea id="message" placeholder="Message" rows="4" required style="padding: 10px; border: 1px solid #ccc;"></textarea>
+        <button type="submit" style="padding: 12px; background: #25D366; color: white; border: none; cursor: pointer;">
+          SUBMIT via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+function sendToWhatsApp() {
+  var name = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+  var address = document.getElementById("address").value.trim();
+  var subject = document.getElementById("subject").value.trim();
+  var message = document.getElementById("message").value.trim();
+
+  var text = "*New SA Cyber Net Inquiry*%0A"
+           + "👤 Name: " + name + "%0A"
+           + "📧 Email: " + email + "%0A"
+           + "📞 Phone: " + phone + "%0A"
+           + "🏠 Address: " + address + "%0A"
+           + "📝 Subject: " + subject + "%0A"
+           + "💬 Message: " + message;
+
+  var phoneNumber = "8801999944566"; // WhatsApp number with country code
+  var url = "https://wa.me/" + phoneNumber + "?text=" + text;
+
+  window.open(url, "_blank");
+}
+</script>

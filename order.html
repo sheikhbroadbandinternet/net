@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internet Package Order</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    .form-container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 10px; }
+    input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; }
+    button { margin-top: 20px; background-color: #28a745; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    button:hover { background-color: #218838; }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Order Your Internet Package</h2>
+  <form id="orderForm">
+    <label for="idnumber">ID Number:</label>
+    <input type="text" id="idnumber" required>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" required>
+
+    <label for="package">Select Your Package:</label>
+    <select id="package" required>
+      <option value="">-- Choose Package --</option>
+      <option value="10 Mbps - ৳500">10 Mbps - ৳500</option>
+      <option value="15 Mbps - ৳600">15 Mbps - ৳600</option>
+      <option value="20 Mbps - ৳800">20 Mbps - ৳800</option>
+      <option value="30 Mbps - ৳1000">30 Mbps - ৳1000</option>
+      <option value="40 Mbps - ৳1500">40 Mbps - ৳1500</option>
+      <option value="50 Mbps - ৳1800">50 Mbps - ৳1800</option>
+      <option value="60 Mbps - ৳2000">60 Mbps - ৳2000</option>
+      <option value="70 Mbps - ৳2400">70 Mbps - ৳2400</option>
+      <option value="80 Mbps - ৳2700">80 Mbps - ৳2700</option>
+      <option value="90 Mbps - ৳3000">90 Mbps - ৳3000</option>
+      <option value="100 Mbps - ৳3300">100 Mbps - ৳3300</option>
+      <option value="150 Mbps - ৳4000">150 Mbps - ৳4000</option>
+    </select>
+
+    <label for="address">Address:</label>
+    <textarea id="address" rows="3" required></textarea>
+
+    <label for="message">Message (Optional):</label>
+    <textarea id="message" rows="2"></textarea>
+
+    <button type="submit">ORDER NOW</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const id = document.getElementById('idnumber').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const pack = document.getElementById('package').value;
+    const address = document.getElementById('address').value;
+    const msg = document.getElementById('message').value;
+
+    const text = `📦 New Internet Package Order:
+ID: ${id}
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Package: ${pack}
+Address: ${address}
+Message: ${msg}`;
+
+    const encoded = encodeURIComponent(text);
+    const whatsappURL = `https://wa.me/8801999944566?text=${encoded}`;
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
+</body>
+</html>
